@@ -16,11 +16,27 @@ body {
 .header {
     position: sticky;
     top: 0;
-    z-index: 10; /* or any other value */
-  }
+    z-index: 50;
+    /* or any other value */
+}
+
+@media (orientation: portrait) {
+
+    .hidden-nav {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+    }
+
+    .visible-nav {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        pointer-events: auto;
+    }
+}
 
 .navboxes {
-/*     border-radius: 12px;
+    /*     border-radius: 12px;
     padding: 4px;
     padding-left: 9px;
     padding-right: 9px; 
@@ -30,7 +46,7 @@ body {
 }
 
 .navboxes:hover {
-/*     background-color: #00334b; */
+    /*     background-color: #00334b; */
     color: #00334b;
 }
 

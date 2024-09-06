@@ -4,6 +4,37 @@ const totalSlides = slides.length;
 let currentIndex = 0;
 let slideInterval;
 
+// Elemento nav
+const nav = document.getElementById('scritte-a-scompasrsa');
+
+// Variabile per memorizzare la posizione dello scroll precedente
+let lastScrollTop = 0;
+let isScrollUp = false;
+window.addEventListener('scroll', function () {
+    // Posizione attuale dello scroll
+    const pos = window.scrollY;
+    let currentScroll = document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        isScrollUp = false;
+        // Se l'utente sta scorrendo verso il basso
+        nav.classList.add('hidden');
+        nav.classList.remove('block');
+    } else if (!isScrollUp) {
+        isScrollUp = true;
+        // Se l'utente sta scorrendo verso l'alto
+        nav.classList.add('block');
+        nav.classList.remove('hidden');
+    }
+    console.log(isScrollUp);
+    // Aggiorna la posizione dello scroll precedente
+    lastScrollTop = currentScroll
+
+
+});
+
+
+
 // Duplica le slide per creare un effetto infinito
 function duplicateSlides() {
     slidesContainer.innerHTML += slidesContainer.innerHTML;
@@ -78,20 +109,20 @@ const anchorLinks = document.querySelectorAll('a[href*="#"]');
 
 // Add an event listener to each anchor link
 anchorLinks.forEach((link) => {
-  link.addEventListener('click', (event) => {
-    // Get the target element (the section with the corresponding id)
-    const target = document.querySelector(link.getAttribute('href'));
+    link.addEventListener('click', (event) => {
+        // Get the target element (the section with the corresponding id)
+        const target = document.querySelector(link.getAttribute('href'));
 
-    // Calculate the offset (in this case, the height of the header + 15px)
-    const offset = document.querySelector('.header').offsetHeight + 15;
+        // Calculate the offset (in this case, the height of the header + 15px)
+        const offset = document.querySelector('.header').offsetHeight + 15;
 
-    // Scroll to the target element with the offset
-    window.scrollTo({
-      top: target.offsetTop - offset,
-      behavior: 'smooth',
+        // Scroll to the target element with the offset
+        window.scrollTo({
+            top: target.offsetTop - offset,
+            behavior: 'smooth',
+        });
+
+        // Prevent the default anchor link behavior
+        event.preventDefault();
     });
-
-    // Prevent the default anchor link behavior
-    event.preventDefault();
-  });
 });
