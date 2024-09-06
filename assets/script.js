@@ -9,32 +9,55 @@ const nav = document.getElementById('scritte-a-scompasrsa');
 let lastPosY = 0;
 let isMobile = screen.orientation.type.toString().includes('landscape') ? false : true;
 
+const animationTime = 350;
+let isClicked = false;
+
 screen.orientation.addEventListener('change', (e) => {
     const type = e.target.type.toString();
     isMobile = type.includes('portrait') ? true : false;
 })
 
 window.addEventListener('scroll', () => {
-    if(!isMobile) return;
+    if (!isMobile) return;
 
+    
     // Posizione attuale dello scroll
     const posY = this.window.scrollY;
 
-    if(posY > lastPosY){
-        nav.classList.add('opacity-0')
-        nav.classList.remove('opacity-100')
-        nav.classList.add('-translate-y-48')
-        nav.classList.remove('translate-y-0')
-    }
-    else if(posY < lastPosY){
-        nav.classList.add('opacity-100');
-        nav.classList.remove('opacity-0')
-        nav.classList.add('translate-y-0')
-        nav.classList.remove('-translate-y-48')
+    if(!isClicked){
+        if (posY > lastPosY) {
+            closeNav();
+        }
+        else if (posY < lastPosY) {
+            openNav();
+        }
     }
 
     lastPosY = posY;
 });
+
+nav.addEventListener('click', (e) => {
+    isClicked = true;
+    closeNav();
+    setTimeout(() => {
+        isClicked = false;
+    }, animationTime);
+
+})
+
+function openNav() {
+    nav.classList.add('opacity-100');
+    nav.classList.remove('opacity-0')
+    nav.classList.add('translate-y-0')
+    nav.classList.remove('-translate-y-48')
+}
+
+function closeNav() {
+    nav.classList.add('opacity-0')
+    nav.classList.remove('opacity-100')
+    nav.classList.add('-translate-y-48')
+    nav.classList.remove('translate-y-0')
+}
 
 
 
@@ -106,26 +129,3 @@ document.querySelector('.slideshow-container').addEventListener('mouseleave', st
 
 // Inizializza lo slideshow
 initSlideshow();
-
-// Get all anchor links with an href attribute
-const anchorLinks = document.querySelectorAll('a[href*="#"]');
-
-// Add an event listener to each anchor link
-anchorLinks.forEach((link) => {
-    link.addEventListener('click', (event) => {
-        // Get the target element (the section with the corresponding id)
-        const target = document.querySelector(link.getAttribute('href'));
-
-        // Calculate the offset (in this case, the height of the header + 15px)
-        const offset = document.querySelector('.header').offsetHeight + 15;
-
-        // Scroll to the target element with the offset
-        window.scrollTo({
-            top: target.offsetTop - offset,
-            behavior: 'smooth',
-        });
-
-        // Prevent the default anchor link behavior
-        event.preventDefault();
-    });
-});

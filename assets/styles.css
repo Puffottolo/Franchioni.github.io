@@ -1,4 +1,4 @@
-html {
+* {
     scroll-behavior: smooth;
 }
 
@@ -11,28 +11,6 @@ body {
     color: #333;
     overflow-x: hidden;
     scroll-behavior: smooth;
-}
-
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    /* or any other value */
-}
-
-@media (orientation: portrait) {
-
-    .hidden-nav {
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        pointer-events: none;
-    }
-
-    .visible-nav {
-        opacity: 1;
-        transition: opacity 0.5s ease;
-        pointer-events: auto;
-    }
 }
 
 .navboxes {
