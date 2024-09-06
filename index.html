@@ -38,8 +38,6 @@
                 <a class="navboxes" href="#contatti">Contatti</a>
             </nav>
         </div>
-
-
     </header>
 
     <div class="mt-24">
@@ -57,7 +55,8 @@
         </div>
 
         <div class="content flex flex-col gap-8 p-8">
-            <section id="chi-siamo">
+            <section class="relative">
+                <div id="chi-siamo" class="absolute -top-32"></div>
                 <h2 class="text-2xl font-semibold mb-1">Chi Siamo</h2>
                 <p class="text-base font-medium">Franchioni Fabio & C. S.N.C. è un'azienda con anni di esperienza nel
                     settore degli impianti elettrici,
@@ -65,7 +64,9 @@
                     qualità, garantendo sicurezza e innovazione in ogni progetto.</p>
             </section>
 
-            <section id="servizi">
+            
+            <section class="relative">
+                <div id="servizi" class="absolute -top-32"></div>
                 <h2 class="text-2xl font-semibold">Servizi</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2">
                     <div class="service">
@@ -97,10 +98,15 @@
             </section>
         </div>
 
-        <div id="contatti" class="contact">
+        <div class="contact relative">
+            <div id="contatti" class="absolute -top-32"></div>
             <a target="_blank" href="./assets/FRANCHIONI FABIO & C. S.N.C..vcf">Contattaci</a>
-            <p>Email: <a class="underline decoration-white" href="mailto:info@franchioni.it">info@franchioni.it</a> |
-                Telefono: <a class="underline decoration-white" href="tel:+39 335 819 819 3">+39 335 819 819 3</a></p>
+            <div class="flex flex-col md:flex-row gap-1 place-content-center">
+                <p>Email: <a class="underline decoration-white" href="mailto:info@franchioni.it">info@franchioni.it</a></p>
+                <p class="hidden md:block">|</p>
+                <p>Telefono: <a class="underline decoration-white" href="tel:+39 335 819 819 3">+39 335 819 819 3</a></p>
+            </div>
+                
             <a class="underline decoration-white" target="_blank" href="https://maps.app.goo.gl/PgQCVocm37zf5RVaA">
                 Indirizzo: Via San Mauro, 38, 24018 Villa d'Almè, Bergamo</a>
         </div>
