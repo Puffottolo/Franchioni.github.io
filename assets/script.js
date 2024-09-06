@@ -21,12 +21,16 @@ window.addEventListener('scroll', () => {
     const posY = this.window.scrollY;
 
     if(posY > lastPosY){
-        nav.classList.add('hidden');
-        nav.classList.remove('block')
+        nav.classList.add('opacity-0')
+        nav.classList.remove('opacity-100')
+        nav.classList.add('-translate-y-48')
+        nav.classList.remove('translate-y-0')
     }
     else if(posY < lastPosY){
-        nav.classList.add('block');
-        nav.classList.remove('hidden')
+        nav.classList.add('opacity-100');
+        nav.classList.remove('opacity-0')
+        nav.classList.add('translate-y-0')
+        nav.classList.remove('-translate-y-48')
     }
 
     lastPosY = posY;
