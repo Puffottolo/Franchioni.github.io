@@ -72,3 +72,26 @@ document.querySelector('.slideshow-container').addEventListener('mouseleave', st
 
 // Inizializza lo slideshow
 initSlideshow();
+
+// Get all anchor links with an href attribute
+const anchorLinks = document.querySelectorAll('a[href*="#"]');
+
+// Add an event listener to each anchor link
+anchorLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    // Get the target element (the section with the corresponding id)
+    const target = document.querySelector(link.getAttribute('href'));
+
+    // Calculate the offset (in this case, the height of the header + 15px)
+    const offset = document.querySelector('.header').offsetHeight + 15;
+
+    // Scroll to the target element with the offset
+    window.scrollTo({
+      top: target.offsetTop - offset,
+      behavior: 'smooth',
+    });
+
+    // Prevent the default anchor link behavior
+    event.preventDefault();
+  });
+});
