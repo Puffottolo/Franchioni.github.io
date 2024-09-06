@@ -6,31 +6,30 @@ let slideInterval;
 
 // Elemento nav
 const nav = document.getElementById('scritte-a-scompasrsa');
+let lastPosY = 0;
+let isMobile = screen.orientation.type.toString().includes('landscape') ? false : true;
 
-// Variabile per memorizzare la posizione dello scroll precedente
-let lastScrollTop = 0;
-let isScrollUp = false;
-window.addEventListener('scroll', function () {
+screen.orientation.addEventListener('change', (e) => {
+    const type = e.target.type.toString();
+    isMobile = type.includes('portrait') ? true : false;
+})
+
+window.addEventListener('scroll', () => {
+    if(!isMobile) return;
+
     // Posizione attuale dello scroll
-    const pos = window.scrollY;
-    let currentScroll = document.documentElement.scrollTop;
+    const posY = this.window.scrollY;
 
-    if (currentScroll > lastScrollTop) {
-        isScrollUp = false;
-        // Se l'utente sta scorrendo verso il basso
+    if(posY > lastPosY){
         nav.classList.add('hidden');
-        nav.classList.remove('block');
-    } else if (!isScrollUp) {
-        isScrollUp = true;
-        // Se l'utente sta scorrendo verso l'alto
-        nav.classList.add('block');
-        nav.classList.remove('hidden');
+        nav.classList.remove('block')
     }
-    console.log(isScrollUp);
-    // Aggiorna la posizione dello scroll precedente
-    lastScrollTop = currentScroll
+    else if(posY < lastPosY){
+        nav.classList.add('block');
+        nav.classList.remove('hidden')
+    }
 
-
+    lastPosY = posY;
 });
 
 
