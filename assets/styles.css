@@ -126,7 +126,6 @@ body {
 .contact {
     background-color: #0071a5;
     color: white;
-    padding: 1px;
     text-align: center;
 }
 
@@ -134,5 +133,4 @@ footer {
     background-color: #00adef;
     color: white;
     text-align: center;
-    padding: 1px;
 }
