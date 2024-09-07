@@ -54,7 +54,7 @@ body {
 .arrow {
     position: absolute;
     top: 50%;
-
+    transform: translateY(-50%);
     font-size: 4em;
     color: #00aeff;
     /*background-color: rgba(0, 0, 0, 0.5);*/
@@ -74,12 +74,12 @@ body {
 }
 
 .arrow.left:hover {
-    transform: translateX(-15px) scale(1.075);
+    transform: translateY(-50%) translateX(-15px) scale(1.075);
     
 }
 
 .arrow.right:hover {
-    transform: translateX(+15px) scale(1.075);
+    transform: translateY(-50%) translateX(+15px) scale(1.075);
 }
 
 .content {
