@@ -69,7 +69,6 @@ body {
     font-size: 4em;
     color: #00aeff;
     /*background-color: rgba(0, 0, 0, 0.5);*/
-    padding: 2px;
     cursor: pointer;
     z-index: 2;
 }
@@ -95,10 +94,6 @@ body {
 
 @media (hover: none) {
 
-    .arrow {
-        top: 59%
-    }
-
     .arrow.left:hover {
         transform: translateY(-50%);
 
@@ -107,7 +102,6 @@ body {
     .arrow.right:hover {
         transform: translateY(-50%);
     }
-
 }
 
 .content {
