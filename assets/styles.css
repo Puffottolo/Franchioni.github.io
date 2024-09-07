@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2fbffd3;
+    background-color: #f4fbff;
     color: #333;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -54,7 +54,7 @@ body {
 .arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+
     font-size: 4em;
     color: #00aeff;
     /*background-color: rgba(0, 0, 0, 0.5);*/
@@ -65,10 +65,21 @@ body {
 
 .arrow.left {
     left: 10px;
+    transition: transform 0.3s;
 }
 
 .arrow.right {
     right: 10px;
+    transition: transform 0.3s;
+}
+
+.arrow.left:hover {
+    transform: translateX(-15px) scale(1.075);
+    
+}
+
+.arrow.right:hover {
+    transform: translateX(+15px) scale(1.075);
 }
 
 .content {
