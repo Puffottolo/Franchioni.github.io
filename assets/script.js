@@ -46,17 +46,15 @@ nav.addEventListener('click', (e) => {
 })
 
 function openNav() {
-    nav.classList.add('opacity-100');
-    nav.classList.remove('opacity-0')
     nav.classList.add('translate-y-0')
     nav.classList.remove('-translate-y-48')
+    nav.style.transition = 'transform 200ms cubic-bezier(0.4, 0, 0.2, 1)';
 }
 
 function closeNav() {
-    nav.classList.add('opacity-0')
-    nav.classList.remove('opacity-100')
     nav.classList.add('-translate-y-48')
     nav.classList.remove('translate-y-0')
+    nav.style.transition = 'transform 1s cubic-bezier(0.4, 0, 0.2, 1)';
 }
 
 
