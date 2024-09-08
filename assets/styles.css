@@ -2,6 +2,12 @@
     scroll-behavior: smooth;
 }
 
+@font-face {
+    font-family: 'FFfont';
+    src: url('./Vandiana_Platin_Lite.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
 
