@@ -4,6 +4,34 @@ const totalSlides = slides.length;
 let currentIndex = 0;
 let slideInterval;
 
+window.addEventListener('load', function() {
+    checkIfSmartphoneAndOrientation();
+    window.addEventListener('resize', checkIfSmartphoneAndOrientation);
+    window.addEventListener('orientationchange', checkIfSmartphoneAndOrientation);
+});
+
+function checkIfSmartphoneAndOrientation() {
+    const overlay = document.getElementById('overlay');
+
+    // Verifica se il dispositivo è uno smartphone (controllo con userAgent)
+    const isSmartphone = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    // Verifica se il dispositivo è in modalità orizzontale usando matchMedia
+    const isLandscape = window.matchMedia('(orientation: landscape)').matches;
+
+    // Mostra l'avviso solo se è uno smartphone in modalità orizzontale
+    if (isSmartphone && isLandscape) {
+        overlay.style.display = 'flex';
+    } else {
+        overlay.style.display = 'none';
+    }
+}
+
+document.getElementById('view-anyway-button').addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'none';
+});
+
+
 // Elemento nav
 const nav = document.getElementById('scritte-a-scompasrsa');
 let lastPosY = 0;
@@ -153,3 +181,27 @@ servicePanels.forEach((panel) => {
     servicePanel.classList.remove('show');
   });
 });
+
+//Immagini macchine vendita
+function showImage(container, index) {
+    const images = container.querySelectorAll('img');
+    images.forEach((img, i) => {
+      img.style.display = i === index ? 'block' : 'none';
+    });
+  }
+  
+  function prevImage(button) {
+    const container = button.parentElement;
+    let currentIndex = parseInt(container.getAttribute('data-current-index'));
+    currentIndex = (currentIndex === 0) ? container.querySelectorAll('img').length - 1 : currentIndex - 1;
+    container.setAttribute('data-current-index', currentIndex);
+    showImage(container, currentIndex);
+  }
+  
+  function nextImage(button) {
+    const container = button.parentElement;
+    let currentIndex = parseInt(container.getAttribute('data-current-index'));
+    currentIndex = (currentIndex === container.querySelectorAll('img').length - 1) ? 0 : currentIndex + 1;
+    container.setAttribute('data-current-index', currentIndex);
+    showImage(container, currentIndex);
+  }

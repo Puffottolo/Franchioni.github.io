@@ -11,6 +11,13 @@
 </head>
 
 <body>
+    <body>
+        <div id="overlay" class="overlay">
+            <div class="overlay-content">
+                <p>Su questo dispositivo potresti riscontrare problemi nel visualizzare correttamente la pagina. <br> Per favore visualizza in modalità verticale</p>
+                <button id="view-anyway-button">Visualizza Comunque</button>
+            </div>
+        </div>
     <header>
         <div class="fixed top-0 w-full z-50 p-5 md:p-3 md:px-6 grid grid-cols-3 bg-[#00adef] items-center">
             <a href="index.html"> <img class="h-14 md:h-16 ml-2" src="./assets/images/logobianco.png" alt="FFLOGO"> </a>
@@ -94,9 +101,20 @@
                             <h2>Impianti Elettrici Civili</h2>
                             <p>Realizziamo impianti elettrici per abitazioni private, garantendo sicurezza e efficienza.
                             </p>
+                            <div class="serviceimage-container" data-current-index="0">
+                                <img class="serviceimages mb-5" src="./assets/images/FotoPiccole/3.jpg"
+                                    alt="Renault Clio Mk.1 16v">
+                                <img class="serviceimages mb-5" src="./assets/images/FotoPiccole/4.jpg"
+                                    alt="Renault Clio Mk.1 16v" style="display: none;">
+                                <img class="serviceimages mb-5" src="./assets/images/FotoPiccole/5.jpg"
+                                    alt="Renault Clio Mk.1 16v" style="display: none;">
+                                <button class="prev" onclick="prevImage(this)">&#10094;</button>
+                                <button class="next" onclick="nextImage(this)">&#10095;</button>
+                            </div>
                             <p>Costo: 100€</p>
                             <p>Quantità: 1</p>
-                            <button class="btn-close">Chiudi</button>
+                            <button class="btn-close rounded-full"> <img src="./assets/images/FotoPiccole/x.png"
+                                    alt="X"></button>
                         </div>
                     </div>
                     <div class="service">
