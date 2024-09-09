@@ -127,3 +127,29 @@ document.querySelector('.slideshow-container').addEventListener('mouseleave', st
 
 // Inizializza lo slideshow
 initSlideshow();
+
+// Seleziona tutti i pannelli dei servizi
+const servicePanels = document.querySelectorAll('.service');
+
+// Aggiungi un evento click a ciascun pannello dei servizi
+servicePanels.forEach((panel) => {
+  const servicePanel = panel.querySelector('.service-panel');
+  const closeButton = servicePanel.querySelector('.btn-close');
+
+  panel.addEventListener('click', () => {
+    // Apri il pannello aggiuntivo
+    servicePanel.classList.add('show');
+    // Aggiungi un evento click all'elemento esterno per chiudere il pannello
+    document.addEventListener('click', (e) => {
+      if (!servicePanel.contains(e.target) && !panel.contains(e.target)) {
+        servicePanel.classList.remove('show');
+      }
+    });
+  });
+
+  // Aggiungi un evento click al pulsante close per chiudere il pannello
+  closeButton.addEventListener('click', (e) => {
+    e.stopPropagation(); // Ferma la propagazione dell'evento click
+    servicePanel.classList.remove('show');
+  });
+});

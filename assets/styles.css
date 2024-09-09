@@ -115,20 +115,6 @@ body {
     margin: auto;
 }
 
-/* Pannellini */
-.service {
-    border-radius: 8px;
-    background-color: #d6f3ff;
-    padding: 20px;
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.308);
-    transition: transform 0.3s;
-}
-
-.service:hover {
-    transform: translateY(-5px);
-}
-
 .contact {
     background-color: #0071a5;
     color: white;
@@ -139,4 +125,84 @@ footer {
     background-color: #00adef;
     color: white;
     text-align: center;
+}
+
+/* Pannellini */
+.service {
+    border-radius: 8px;
+    background-color: #d6f3ff;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.308);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+/* .service:hover {
+    transform: scale(1.05);
+} */
+
+.service-panel {
+    position: fixed;
+    z-index: 40;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1200px;
+    /* larghezza massima della griglia dei servizi */
+    height: 80%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.616);
+    padding: 20px;
+    display: none;
+    opacity: 0;
+    transition: none;
+    pointer-events: none;
+    cursor: auto;
+}
+
+@media (max-width: 1334px) {
+    .service-panel {
+        max-width: 90%;
+        /* larghezza massima del 90% della larghezza dello schermo */
+        height: 60%;
+    }
+}
+
+@media (max-height: 1000px) {
+    .service-panel {
+        height: 60%;
+    }
+}
+
+.service-panel.show {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.service-panel h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.service-panel p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+.btn-close {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
