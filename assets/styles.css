@@ -170,7 +170,7 @@ footer {
     text-align: center;
 }
 
-/* Pannellini */
+/* Pannellini
 .service {
     border-radius: 8px;
     background-color: #d6f3ff;
@@ -185,6 +185,7 @@ footer {
     transform: scale(1.05);
 } */
 
+/*
 .service-panel {
     position: fixed;
     z-index: 40;
@@ -193,7 +194,7 @@ footer {
     transform: translate(-50%, -50%);
     width: 100%;
     max-width: 1200px;
-    /* larghezza massima della griglia dei servizi */
+
     height: 80%;
     background-color: #fff;
     border-radius: 10px;
@@ -205,15 +206,13 @@ footer {
     pointer-events: none;
     cursor: auto;
     display: flex;
-    /* Add this */
-    justify-content: center;
-    /* Add this */
+   justify-content: center;
+
 }
 
 @media (max-width: 1334px) {
     .service-panel {
         max-width: 90%;
-        /* larghezza massima del 90% della larghezza dello schermo */
         height: 60%;
     }
 }
@@ -271,7 +270,6 @@ footer {
 
 .serviceimage-container {
     margin: 0 auto;
-    /* Add this */
     position: relative;
     max-width: 70%;
     max-height: 800px;
@@ -351,4 +349,4 @@ footer {
         transition: transform 0.3s;
     }
 
-}
+} */
